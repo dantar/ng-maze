@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { MazeViewerComponent } from './components/maze-viewer/maze-viewer.component';
+import { MazeTileComponent } from './components/maze-tile/maze-tile.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MazeViewerComponent,
+    MazeTileComponent
   ],
   imports: [
     BrowserModule

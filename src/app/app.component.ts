@@ -1,3 +1,4 @@
+import { MazeGrid } from './models/maze-grid';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  maze: MazeGrid = {
+    name: 'Static Maze',
+    sizeX: 2,
+    sizeY: 2,
+    rooms: [],
+  };
+
 }
