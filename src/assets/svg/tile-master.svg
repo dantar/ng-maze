@@ -34,9 +34,9 @@
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1043"
+     inkscape:window-height="1016"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -126,9 +126,10 @@
        x="0"
        y="0"
        xlink:href="#exit"
-       id="use4516"
+       id="exitNorth"
        width="100%"
-       height="100%" />
+       height="100%"
+       inkscape:label="#use4516" />
     <use
        height="100%"
        width="100%"
@@ -141,12 +142,13 @@
     <use
        height="100%"
        width="100%"
-       id="use4522"
+       id="exitWest"
        xlink:href="#exit"
        y="0"
        x="0"
        style="display:inline"
-       transform="matrix(0,-1,1,0,-752.36213,300)" />
+       transform="matrix(0,-1,1,0,-752.36213,300)"
+       inkscape:label="#use4522" />
     <use
        transform="matrix(0,-1,-1,0,1052.3621,300)"
        style="display:inline"
@@ -162,9 +164,10 @@
        x="0"
        y="0"
        xlink:href="#exit"
-       id="use4526"
+       id="exitEast"
        width="100%"
-       height="100%" />
+       height="100%"
+       inkscape:label="#use4526" />
     <use
        height="100%"
        width="100%"
@@ -177,11 +180,12 @@
     <use
        height="100%"
        width="100%"
-       id="use4530"
+       id="exitSouth"
        xlink:href="#exit"
        y="0"
        x="0"
        style="display:inline"
-       transform="matrix(1,0,0,-1,0,1052.3621)" />
+       transform="matrix(1,0,0,-1,0,1052.3621)"
+       inkscape:label="#use4530" />
   </g>
 </svg>
