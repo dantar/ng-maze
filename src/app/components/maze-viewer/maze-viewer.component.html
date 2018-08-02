@@ -1,5 +1,6 @@
 <div *ngIf="!rooms">loading</div>
 <svg *ngIf="rooms"
+   [attr.viewBox]="svgViewBox()"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -8,7 +9,6 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    version="1.1"
    id="svg2"
-   viewBox="0 0 600 600"
    height="300"
    width="300">
   <g
