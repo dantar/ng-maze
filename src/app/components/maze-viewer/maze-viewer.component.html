@@ -1,5 +1,5 @@
-<div *ngIf="!rooms">loading</div>
-<svg *ngIf="rooms"
+<div *ngIf="!grid">loading...</div>
+<svg *ngIf="grid"
    [attr.viewBox]="svgViewBox()"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -46,6 +46,5 @@
          transform="translate(0,752.36213)" />
     </g>
   </g>
-  <svg:g app-maze-tile [room]="rooms[0][0]"></svg:g>
-  <svg:g app-maze-tile [room]="rooms[1][0]"></svg:g>
+  <svg:g *ngFor="let room of grid.rooms" app-maze-tile [room]="room"></svg:g>
 </svg>
