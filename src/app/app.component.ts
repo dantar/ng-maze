@@ -1,5 +1,6 @@
+import { MazeRestService } from './services/maze-rest.service';
 import { MazeGrid } from './models/maze-grid';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
 
-  maze: MazeGrid = {
-    name: 'Static Maze',
-    sizeX: 2,
-    sizeY: 2,
-    rooms: [],
-  };
+  constructor(private rest: MazeRestService) { }
+
+  grid: MazeGrid;
+
+  ngOnInit() {
+    this.newMaze();
+  }
+
+  newMaze() {
+    this.rest.newMaze(10, 10).subscribe((data: MazeGrid) => {
+      this.grid = data;
+    });
+  }
 
 }

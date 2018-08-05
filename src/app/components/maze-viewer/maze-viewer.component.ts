@@ -1,7 +1,7 @@
 import { MazeGrid } from './../../models/maze-grid';
 import { MazeRestService } from './../../services/maze-rest.service';
 import { MazeRoom } from './../../models/maze-room';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-maze-viewer',
@@ -10,17 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MazeViewerComponent implements OnInit {
 
-  constructor(private rest: MazeRestService) { }
-
-  grid: MazeGrid;
+  @Input() grid: MazeGrid;
   atX = 0;
   atY = 0;
   tileSize = 300;
 
   ngOnInit() {
-    this.rest.newMaze(10, 10).subscribe((data: MazeGrid) => {
-      this.grid = data;
-    });
   }
 
   svgViewBox() {

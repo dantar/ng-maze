@@ -12,10 +12,45 @@ export class MazeTileComponent implements OnInit {
 
   @Input() room: MazeRoom;
 
+  tileClass = 'hidden';
+
   ngOnInit() {
+    if (this.room.east && this.room.west && this.room.north && this.room.south) {
+      this.tileClass = 'visible';
+    }
   }
 
   tileTransform(): string {
     return 'translate(' + 300 * this.room.posX + ',' + 300 * this.room.posY + ' )';
   }
+
+  clickTile(event) {
+    if (this.tileClass === 'visible') {
+      this.tileClass = 'hidden';
+    } else {
+      this.tileClass = 'visible';
+    }
+  }
+
+  isRoom(): boolean {
+    let count = 0;
+    if (this.room.north) {
+      count = count + 1;
+    }
+    if (this.room.south) {
+      count = count + 1;
+    }
+    if (this.room.east) {
+      count = count + 1;
+    }
+    if (this.room.west) {
+      count = count + 1;
+    }
+    return count === 1;
+  }
+
+  isCorridor(): boolean {
+    return !this.isRoom();
+  }
+
 }
