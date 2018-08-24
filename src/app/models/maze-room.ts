@@ -5,4 +5,6 @@ export class MazeRoom {
   east: boolean;
   posX: number;
   posY: number;
+
+  hidden = true;
 }

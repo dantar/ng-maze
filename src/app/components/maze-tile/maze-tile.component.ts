@@ -15,9 +15,6 @@ export class MazeTileComponent implements OnInit {
   tileClass = 'hidden';
 
   ngOnInit() {
-    if (this.room.east && this.room.west && this.room.north && this.room.south) {
-      this.tileClass = 'visible';
-    }
   }
 
   tileTransform(): string {

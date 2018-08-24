@@ -1,0 +1,12 @@
+<div>
+  <div>{{monster.name}}</div>
+  <div>
+    <div *ngFor="let trigger of triggers">
+        <div *ngIf="! trigger.hidden">{{trigger.action.text}}</div>
+        <button *ngIf="trigger.hidden" (click)="triggerAction(trigger)">Clicca!</button>
+    </div>
+  </div>
+</div>
+<div (click)="slayMonster()">
+  Fallo fuori!
+</div>
