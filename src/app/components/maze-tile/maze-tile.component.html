@@ -1,6 +1,6 @@
-<svg:g [attr.transform]="tileTransform()" (click)="clickTile($event)">
+<svg:g [attr.transform]="tileTransform()">
 
-  <svg:g *ngIf="isRoom()">
+  <svg:g *ngIf="isRoom()" (click)="fight.emit('skeleton')">
     <use height="100%" width="100%" id="use4177" xlink:href="#roomTileMaster" y="0" x="0" />
     <use height="100%" width="100%" id="wallNorth" xlink:href="#roomWallMaster" y="0" x="0" />
     <use *ngIf="room.north" height="100%" width="100%" id="exitNorth" xlink:href="#roomExitMaster" y="0" x="0" />
@@ -29,7 +29,7 @@
       id="corridorWest" width="100%" height="100%" />
   </svg:g>
 
-  <svg:g *ngIf="tileClass === 'hidden'">
+  <svg:g *ngIf="tileClass === 'hidden'" (click)="clickTile($event)">
     <use height="100%" width="100%" xlink:href="#blankTile" y="0" x="0" />
   </svg:g>
 

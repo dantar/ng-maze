@@ -1,5 +1,5 @@
 import { MazeRoom } from './../../models/maze-room';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-maze-tile,[app-maze-tile]',
@@ -11,6 +11,7 @@ export class MazeTileComponent implements OnInit {
   constructor() { }
 
   @Input() room: MazeRoom;
+  @Output() fight: EventEmitter<String> = new EventEmitter();
 
   tileClass = 'hidden';
 

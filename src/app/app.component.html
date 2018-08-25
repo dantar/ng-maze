@@ -1,5 +1,5 @@
 <div>Maze viewer</div>
-<app-maze-viewer [grid]="grid" *ngIf="monster == null"></app-maze-viewer>
+<app-maze-viewer [grid]="grid" [hidden]="monster != null" (fight)="newMonster()"></app-maze-viewer>
 <app-fight-monster [monster]="monster" (slay)="slayMonster($event)" *ngIf="monster != null"></app-fight-monster>
 <div (click)="newMaze()">
   Un altro...

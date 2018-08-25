@@ -39,5 +39,5 @@
       />
     </g>
   </g>
-  <svg:g *ngFor="let room of grid.rooms" app-maze-tile [room]="room"></svg:g>
+  <svg:g *ngFor="let room of grid.rooms" app-maze-tile [room]="room" (fight)="fight.emit($event)"></svg:g>
 </svg>
