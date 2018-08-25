@@ -1,3 +1,4 @@
+import { MazeGameService } from './maze-game.service';
 import { GamesCommonService } from './services/games-common.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { MazeRestService } from './services/maze-rest.service';
@@ -8,6 +9,7 @@ import { AppComponent } from './app.component';
 import { MazeViewerComponent } from './components/maze-viewer/maze-viewer.component';
 import { MazeTileComponent } from './components/maze-tile/maze-tile.component';
 import { FightMonsterComponent } from './components/fight-monster/fight-monster.component';
+import { ExplorerPanelComponent } from './explorer-panel/explorer-panel.component';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { FightMonsterComponent } from './components/fight-monster/fight-monster.
     AppComponent,
     MazeViewerComponent,
     MazeTileComponent,
-    FightMonsterComponent
+    FightMonsterComponent,
+    ExplorerPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import { FightMonsterComponent } from './components/fight-monster/fight-monster.
   providers: [
     MazeRestService,
     GamesCommonService,
+    MazeGameService,
     HttpClient,
   ],
   bootstrap: [AppComponent]

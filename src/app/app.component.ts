@@ -1,3 +1,4 @@
+import { MazeExplorer } from './models/maze-explorer';
 import { MazeMonster } from './models/maze-monster';
 import { MazeRestService } from './services/maze-rest.service';
 import { MazeGrid } from './models/maze-grid';
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
 
   grid: MazeGrid;
   monster: MazeMonster;
+  explorer: MazeExplorer;
 
   ngOnInit() {
     this.newMaze();
@@ -24,13 +26,19 @@ export class AppComponent implements OnInit {
   newMaze() {
     this.rest.newMaze(10, 10).subscribe((data: MazeGrid) => {
       this.grid = data;
+      this.explorer = {
+        life: 10,
+        poison: 0,
+        gold: 0,
+      };
     });
   }
 
   newMonster() {
     this.monster = {
-      name: 'Skeleton',
+      name: 'Scheletro',
       keywords: ['undead', 'minion'],
+      life: 1,
       attacks: [
         {name: 'hitsyou', text: 'Ti colpisce!'},
         {name: 'hitsyou', text: 'Ti colpisce!'},
@@ -41,6 +49,11 @@ export class AppComponent implements OnInit {
 
   slayMonster(monster: MazeMonster) {
     this.monster = null;
+  }
+
+  explorerDies(monster: MazeMonster) {
+    this.monster = null;
+    this.newMaze();
   }
 
 }

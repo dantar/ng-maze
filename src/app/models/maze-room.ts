@@ -6,5 +6,6 @@ export class MazeRoom {
   posX: number;
   posY: number;
 
-  hidden = true;
+  keywords: string[] = [];
+
 }

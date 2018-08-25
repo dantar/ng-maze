@@ -4,4 +4,5 @@ export class MazeMonster {
   name: string;
   keywords: string[] = [];
   attacks: CombatAction[] = [];
+  life: number;
 }

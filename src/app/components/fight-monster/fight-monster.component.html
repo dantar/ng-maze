@@ -3,10 +3,15 @@
   <div>
     <div *ngFor="let trigger of triggers">
         <div *ngIf="! trigger.hidden">{{trigger.action.text}}</div>
-        <button *ngIf="trigger.hidden" (click)="triggerAction(trigger)">Clicca!</button>
+        <button [disabled]="this.monster.life <= 0" *ngIf="trigger.hidden" (click)="triggerAction(trigger)">Clicca!</button>
     </div>
   </div>
-</div>
-<div (click)="slayMonster()">
-  Fallo fuori!
-</div>
+  <div *ngIf="this.monster.life <= 0">
+    Bravo!
+    <button (click)="slay.emit(monster)">chiudi</button>
+  </div>
+  <div *ngIf="this.explorer.life <= 0">
+      Sei morto!
+      <button (click)="die.emit(monster)">chiudi</button>
+    </div>
+  </div>
