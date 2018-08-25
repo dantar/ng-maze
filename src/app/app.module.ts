@@ -1,4 +1,3 @@
-import { MazeGameService } from './maze-game.service';
 import { GamesCommonService } from './services/games-common.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { MazeRestService } from './services/maze-rest.service';
@@ -27,7 +26,6 @@ import { ExplorerPanelComponent } from './explorer-panel/explorer-panel.componen
   providers: [
     MazeRestService,
     GamesCommonService,
-    MazeGameService,
     HttpClient,
   ],
   bootstrap: [AppComponent]

@@ -1,4 +1,3 @@
-import { MazeGameService } from './../../maze-game.service';
 import { GamesCommonService } from './../../services/games-common.service';
 import { CombatAction } from './../../models/combat-action';
 import { MazeMonster } from './../../models/maze-monster';
@@ -13,7 +12,6 @@ export class FightMonsterComponent implements OnInit {
 
   constructor(
     private gcs: GamesCommonService,
-    private mazeGame: MazeGameService,
   ) { }
 
   @Input() monster: MazeMonster;
