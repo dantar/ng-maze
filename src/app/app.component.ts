@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
         {name: 'hitsyou', text: 'Ti colpisce!'},
         {name: 'hitsyou', text: 'Ti colpisce!'},
         {name: 'youhit', text: 'Lo colpisci!'},
+        {name: 'gaingold', text: 'Trovi dell\'oro!'},
       ]
     };
   }

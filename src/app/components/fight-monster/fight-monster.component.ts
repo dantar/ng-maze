@@ -1,3 +1,4 @@
+import { MazeExplorer } from './../../models/maze-explorer';
 import { GamesCommonService } from './../../services/games-common.service';
 import { CombatAction } from './../../models/combat-action';
 import { MazeMonster } from './../../models/maze-monster';
@@ -15,11 +16,23 @@ export class FightMonsterComponent implements OnInit {
   ) { }
 
   @Input() monster: MazeMonster;
-  @Input() explorer: MazeMonster;
+  @Input() explorer: MazeExplorer;
   @Output() slay: EventEmitter<MazeMonster> = new EventEmitter();
   @Output() die: EventEmitter<MazeMonster> = new EventEmitter();
 
   triggers: TriggerAction[] = [];
+
+  actions = {
+    hitsyou: () => {
+      this.explorer.life--;
+    },
+    youhit: () => {
+      this.monster.life--;
+    },
+    gaingold: () => {
+      this.explorer.gold++;
+    },
+  };
 
   ngOnInit() {
     this.monster.attacks.forEach(attack => {
@@ -33,18 +46,7 @@ export class FightMonsterComponent implements OnInit {
 
   triggerAction(trigger: TriggerAction) {
     trigger.hidden = false;
-    if (trigger.action.name === 'hitsyou') {
-      this.explorer.life--;
-      // if (this.explorer.life <= 0) {
-      //   this.die.emit(this.monster);
-      // }
-    }
-    if (trigger.action.name === 'youhit') {
-      this.monster.life--;
-      // if (this.monster.life <= 0) {
-      //   this.slay.emit(this.monster);
-      // }
-    }
+    this.actions[trigger.action.name]();
   }
 
 }
