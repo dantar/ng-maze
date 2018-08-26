@@ -1,35 +1,39 @@
 <svg:g [attr.transform]="tileTransform()">
 
-  <svg:g *ngIf="isRoom()" (click)="fight.emit('skeleton')">
+  <svg:g *ngIf="tile.room.shape === 'room'" (click)="fight.emit('skeleton')">
     <use height="100%" width="100%" id="use4177" xlink:href="#roomTileMaster" y="0" x="0" />
     <use height="100%" width="100%" id="wallNorth" xlink:href="#roomWallMaster" y="0" x="0" />
-    <use *ngIf="room.north" height="100%" width="100%" id="exitNorth" xlink:href="#roomExitMaster" y="0" x="0" />
+    <use *ngIf="tile.room.north" height="100%" width="100%" id="exitNorth" xlink:href="#roomExitMaster" y="0" x="0" />
     <use height="100%" width="100%" transform="matrix(0,1,-1,0,300,0)" x="0" y="0" xlink:href="#roomWallMaster" id="wallEast"
     />
     <use id="wallWest" xlink:href="#roomWallMaster" y="0" x="0" transform="matrix(0,1,1,0,0,0)" width="100%" height="100%" />
     <use height="100%" width="100%" transform="matrix(1,0,0,-1,0,300)" x="0" y="0" xlink:href="#roomWallMaster" id="wallSouth"
     />
-    <use *ngIf="room.south" height="100%" width="100%" transform="matrix(1,0,0,-1,0,300)" x="0" y="0" xlink:href="#roomExitMaster"
+    <use *ngIf="tile.room.south" height="100%" width="100%" transform="matrix(1,0,0,-1,0,300)" x="0" y="0" xlink:href="#roomExitMaster"
       id="exitSouth" />
-    <use *ngIf="room.east" id="exitEast" xlink:href="#roomExitMaster" y="0" x="0" transform="matrix(0,-1,-1,0,300,300)" width="100%"
+    <use *ngIf="tile.room.east" id="exitEast" xlink:href="#roomExitMaster" y="0" x="0" transform="matrix(0,-1,-1,0,300,300)" width="100%"
       height="100%" />
-    <use *ngIf="room.west" height="100%" width="100%" transform="matrix(0,-1,1,0,0,300)" x="0" y="0" xlink:href="#roomExitMaster"
+    <use *ngIf="tile.room.west" height="100%" width="100%" transform="matrix(0,-1,1,0,0,300)" x="0" y="0" xlink:href="#roomExitMaster"
       id="exitWest" />
   </svg:g>
 
-  <svg:g *ngIf="isCorridor()" style="display:inline" id="layer3">
+  <svg:g *ngIf="tile.room.shape === 'corridor'" style="display:inline" id="layer3">
     <use height="100%" width="100%" id="use4551" xlink:href="#corridorTileMaster" y="0" x="0" style="display:inline" />
-    <use *ngIf="room.north" height="100%" width="100%" id="corridorNorth" xlink:href="#corridorMaster" y="0" x="0" style="display:inline"
+    <use *ngIf="tile.room.north" height="100%" width="100%" id="corridorNorth" xlink:href="#corridorMaster" y="0" x="0" style="display:inline"
     />
-    <use *ngIf="room.south" transform="matrix(-1,0,0,-1,300,300)" style="display:inline" x="0" y="0" xlink:href="#corridorMaster"
+    <use *ngIf="tile.room.south" transform="matrix(-1,0,0,-1,300,300)" style="display:inline" x="0" y="0" xlink:href="#corridorMaster"
       id="corridorSouth" width="100%" height="100%" />
-    <use *ngIf="room.east" height="100%" width="100%" id="corridorEast" xlink:href="#corridorMaster" y="0" x="0" style="display:inline"
+    <use *ngIf="tile.room.east" height="100%" width="100%" id="corridorEast" xlink:href="#corridorMaster" y="0" x="0" style="display:inline"
       transform="matrix(0,1,-1,0,300,0)" />
-    <use *ngIf="room.west" transform="matrix(0,-1,1,0,0,300)" style="display:inline" x="0" y="0" xlink:href="#corridorMaster"
+    <use *ngIf="tile.room.west" transform="matrix(0,-1,1,0,0,300)" style="display:inline" x="0" y="0" xlink:href="#corridorMaster"
       id="corridorWest" width="100%" height="100%" />
   </svg:g>
 
-  <svg:g *ngIf="tileClass === 'hidden'" (click)="clickTile($event)">
+  <svg:g *ngIf="tile.hidden && !tile.reach" >
+    <use height="100%" width="100%" xlink:href="#blankTile" y="0" x="0" />
+  </svg:g>
+
+  <svg:g *ngIf="tile.hidden && tile.reach" (click)="reach.emit(tile)">
     <use height="100%" width="100%" xlink:href="#blankTile" y="0" x="0" />
   </svg:g>
 
