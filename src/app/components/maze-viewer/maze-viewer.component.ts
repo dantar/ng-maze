@@ -16,7 +16,7 @@ export class MazeViewerComponent implements OnInit {
 
   @Input() grid: MazeGrid;
   @Input() visible = true;
-  @Output() fight: EventEmitter<String> = new EventEmitter();
+  @Output() fight: EventEmitter<MazeMonster> = new EventEmitter();
 
   mapTiles: TileInfo[][];
   allTiles: TileInfo[];

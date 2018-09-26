@@ -1,4 +1,4 @@
 <div>Maze viewer</div>
 <app-explorer-panel [explorer]="explorer"></app-explorer-panel>
-<app-maze-viewer *ngIf="grid" [grid]="grid" [hidden]="monster != null" (fight)="newMonster()"></app-maze-viewer>
+<app-maze-viewer *ngIf="grid" [grid]="grid" [hidden]="monster != null" (fight)="newMonster($event)"></app-maze-viewer>
 <app-fight-monster [monster]="monster" [explorer]="explorer" (slay)="slayMonster($event)" (die)="explorerDies($event)" *ngIf="monster != null"></app-fight-monster>

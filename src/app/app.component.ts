@@ -34,18 +34,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  newMonster() {
-    this.monster = {
-      name: 'Scheletro',
-      keywords: ['undead', 'minion'],
-      life: 1,
-      attacks: [
-        {name: 'hitsyou', text: 'Ti colpisce!'},
-        {name: 'hitsyou', text: 'Ti colpisce!'},
-        {name: 'youhit', text: 'Lo colpisci!'},
-        {name: 'gaingold', text: 'Trovi dell\'oro!'},
-      ]
-    };
+  newMonster(monster: MazeMonster) {
+    this.monster = monster;
   }
 
   slayMonster(monster: MazeMonster) {
