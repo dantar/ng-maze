@@ -1,3 +1,4 @@
+import { MazeGrid } from './../../models/maze-grid';
 import { MazeExplorer } from './../../models/maze-explorer';
 import { GamesCommonService } from './../../services/games-common.service';
 import { CombatAction } from './../../models/combat-action';
@@ -17,6 +18,7 @@ export class FightMonsterComponent implements OnInit {
 
   @Input() monster: MazeMonster;
   @Input() explorer: MazeExplorer;
+  @Input() grid: MazeGrid;
   @Output() slay: EventEmitter<MazeMonster> = new EventEmitter();
   @Output() die: EventEmitter<MazeMonster> = new EventEmitter();
 
@@ -40,6 +42,9 @@ export class FightMonsterComponent implements OnInit {
         hidden: true,
         action: attack,
       });
+    });
+    this.grid.rooms.forEach(room => {
+      // this.monster.helpedBy(monster);
     });
     this.gcs.shuffle(this.triggers);
   }

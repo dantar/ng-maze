@@ -86,5 +86,5 @@
        ry="0" />
 
   </g>
-  <svg:g *ngFor="let tile of allTiles" app-maze-tile [tile]="tile" (reach)="revealTile($event)" (fight)="fight.emit($event)"></svg:g>
+  <svg:g *ngFor="let tile of tiles" app-maze-tile [tile]="tile" (reach)="revealTile($event)" (fight)="fight.emit($event)"></svg:g>
 </svg>

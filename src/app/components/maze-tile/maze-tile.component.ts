@@ -1,3 +1,4 @@
+import { TriggerAction } from './../fight-monster/fight-monster.component';
 import { MazeMonster } from './../../models/maze-monster';
 import { TileInfo } from './../../models/tile-info';
 import { MazeRoom } from './../../models/maze-room';
@@ -16,23 +17,7 @@ export class MazeTileComponent implements OnInit {
   @Output() fight: EventEmitter<MazeMonster> = new EventEmitter();
   @Output() reach: EventEmitter<TileInfo> = new EventEmitter();
 
-  monster: MazeMonster;
-
-  ngOnInit() {
-    if (this.tile.room.keywords.includes('skeleton')) {
-      this.monster = {
-        name: 'skeleton',
-        keywords: ['undead', 'minion'],
-        life: 1,
-        attacks: [
-          {name: 'hitsyou', text: 'Ti colpisce!'},
-          {name: 'hitsyou', text: 'Ti colpisce!'},
-          {name: 'youhit', text: 'Lo colpisci!'},
-          {name: 'gaingold', text: 'Trovi dell\'oro!'},
-        ]
-      };
-    }
-  }
+  ngOnInit() {}
 
   tileTransform(): string {
     return 'translate(' + 300 * this.tile.room.posX + ',' + 300 * this.tile.room.posY + ' )';

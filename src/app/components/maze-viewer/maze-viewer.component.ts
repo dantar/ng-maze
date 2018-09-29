@@ -1,3 +1,4 @@
+import { TriggerAction } from './../fight-monster/fight-monster.component';
 import { TileInfo } from './../../models/tile-info';
 import { MazeMonster } from './../../models/maze-monster';
 import { MazeGrid } from './../../models/maze-grid';
@@ -15,29 +16,23 @@ import { ERROR_COMPONENT_TYPE } from '@angular/compiler';
 export class MazeViewerComponent implements OnInit {
 
   @Input() grid: MazeGrid;
+  @Input() tiles: TileInfo[];
   @Input() visible = true;
   @Output() fight: EventEmitter<MazeMonster> = new EventEmitter();
 
   mapTiles: TileInfo[][];
-  allTiles: TileInfo[];
 
   atX = 0;
   atY = 0;
   tileSize = 300;
 
   ngOnInit() {
-    this.allTiles = [];
     this.mapTiles = [];
     for (let index = 0; index < this.grid.sizeX; index++) {
       this.mapTiles[index] = [];
     }
-    this.grid.rooms.forEach((room) => {
-      this.mapTiles[room.posX][room.posY] = {
-        room: room,
-        hidden: true,
-        reach: false,
-      };
-      this.allTiles.push(this.mapTiles[room.posX][room.posY]);
+    this.tiles.forEach(tile => {
+      this.mapTiles[tile.room.posX][tile.room.posY] = tile;
     });
     this.revealTile(this.mapTiles[0][0]);
   }
